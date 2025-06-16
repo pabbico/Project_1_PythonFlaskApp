@@ -1,11 +1,11 @@
 
 # Project: Dockerized Python Flask App (Local Build & Push to Docker Hub)  
 
-## 📌 Project Overview  
+## Project Overview  
 This project demonstrates how to:  
-✅ Dockerize a Python Flask app  
-✅ Run locally for testing  
-✅ Push the Docker image to Docker Hub  
+ Dockerize a Python Flask app  
+ Run locally for testing  
+ Push the Docker image to Docker Hub  
 
 ### Technologies Used  
 - Python Flask (Backend)  
@@ -14,82 +14,80 @@ This project demonstrates how to:
 
 ---
 
-## 🚀 Prerequisites  
+## Prerequisites  
 1. Docker installed ([Download Here](https://www.docker.com/get-started))  
 2. Docker Hub account ([Sign Up Here](https://hub.docker.com/))  
 3. Python 3.9+ (for local testing)  
 
 ---
 
-## 🛠️ Setup & Run Locally  
+## Setup & Run Locally  
 
 ### 1. Clone the Repository  
-```bash
-git clone https://github.com/your-username/flask-docker-project.git
-cd flask-docker-project
-```
+
+# git clone https://github.com/your-username/flask-docker-project.git
+# cd flask-docker-project
+
 
 ### 2. (Optional) Test Flask Without Docker  
-```bash
-cd app
-pip install -r requirements.txt
-python app.py  # Runs on http://localhost:5000
-```
-- Verify: Open `http://localhost:5000` (should show *"Hello, Docker!"*).  
+
+# cd app
+# pip install -r requirements.txt
+# python app.py  # Runs on http://localhost:5000
+
+- Verify: Open `http://localhost:5000` (should show *"Hello, DevOps! Flask App Running Successfully!"*).  
 
 ---
 
-## 🐳 Docker Build & Run  
+##  Docker Build & Run  
 
 ### 1. Build the Docker Image  
-```bash
-docker build -t your-dockerhub-username/flask-app:latest .
-```
+
+# docker build -t your-dockerhub-username/flask-app:latest .
+
 - Replace `your-dockerhub-username` with your actual Docker Hub username.  
 
 ### 2. Run the Container Locally  
-```bash
-docker run -d -p 5001:5000 your-dockerhub-username/flask-app:latest
-```
+
+# docker run -d -p 5001:5000 your-dockerhub-username/flask-app:latest
+
 - Access: Open `http://localhost:5001` (same Flask app, now inside Docker).  
 
 ### 3. Check Running Containers  
-```bash
-docker ps  # Should show your container as "Up"
-```
+
+# docker ps  # Should show your container as "Up"
 
 ---
 
-## 📤 Push to Docker Hub  
+## Push to Docker Hub  
 
 ### 1. Log in to Docker Hub  
-```bash
+
 docker login
-```
+
 - Enter your Docker Hub credentials when prompted.  
 
 ### 2. Push the Image  
-```bash
+
 docker push your-dockerhub-username/flask-app:latest
-```
+
 - Verify: Check your [Docker Hub repository](https://hub.docker.com/repositories) for the pushed image.  
 
 ---
 
-## 📂 Project Structure  
-```
+## Project Structure  
+
 flask-docker-project/  
 │── app/  
 │   │── app.py                # Flask app (returns "Hello, Docker!")  
 │   │── requirements.txt      # Dependencies (Flask, Gunicorn)  
 │── Dockerfile                # Docker image setup  
 │── README.md                 # This file  
-```
 
 ---
 
-## 📜 Dockerfile Contents  
-```dockerfile
+## Dockerfile Contents  
+
 FROM python:3.9-slim
 WORKDIR /app
 COPY app/requirements.txt .
@@ -97,11 +95,10 @@ RUN pip install -r requirements.txt
 COPY app/ .
 EXPOSE 5000
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
-```
 
 ---
 
-## ⚠️ Troubleshooting  
+## Troubleshooting  
 | Issue | Solution |  
 |-------|----------|  
 | `docker build` fails | Check `Dockerfile` syntax and file paths. |  
@@ -110,25 +107,22 @@ CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
 
 ---
 
-## 📜 License  
+## License  
 MIT License.  
 
 ---
 
-## 🙋 Need Help?  
+## Need Help?  
 - Open an issue on GitHub.  
-- Contact me: [Your Email/Twitter/etc.]  
+- Contact me: [mail_id: ps26.pawan@gmail.com]  
 
 ---
 
-### 🎉 Done!  
+### Done!  
 You’ve successfully:  
 1. Built a Dockerized Flask app.  
 2. Tested it locally.  
 3. Pushed it to Docker Hub.  
 
-Next, try deploying it to Kubernetes or a cloud provider! 🚀  
 
 --- 
-
-This version keeps it 100% Docker-focused with no AWS dependencies. Let me know if you'd like any modifications! 😊
